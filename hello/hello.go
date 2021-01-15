@@ -1,11 +1,11 @@
-package main
+package main // import "hello"
 
 // #include <stdio.h>
 // #include <stdlib.h>
 import "C"
 import "unsafe"
 
-// MyCprint - 이럴거면 뭐하러 go를 쓰냐 C/C++을 쓰지. 뭐 필요한 곳이 있겠지...
+// MyCprint - Call C function
 func MyCprint(s string) {
 	cs := C.CString(s)
 	C.fputs(cs, (*C.FILE)(C.stdout))
