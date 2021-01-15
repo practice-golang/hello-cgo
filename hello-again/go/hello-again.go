@@ -41,5 +41,5 @@ func main() {
 		log.Fatal(err)
 	}
 
-	fmt.Println("\n1 + 2 =", res)
+	fmt.Println("1 + 2 =", res)
 }
