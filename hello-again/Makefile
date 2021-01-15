@@ -11,4 +11,4 @@ golang:
 build: cgo golang
 
 clean:
-	rm c/say.o c/sum.o lib/libmylib.a hello-again.exe
+	rm c/say.o c/sum.o lib/libmylib.a hello-again*
