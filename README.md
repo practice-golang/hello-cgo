@@ -1,8 +1,9 @@
 # Cgo practice
 
-## Tool
+## Used tool
 * Go 1.15
-* GCC 8.1.0 / MinGW-W64
+* GCC 8.1.0 / MinGW-W64, Unbuntu 18.04
+* MSVC - No. https://github.com/golang/go/issues/20982
 
 ## Folders
 * `hello` - C codes are embeded
