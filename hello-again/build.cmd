@@ -1,6 +1,13 @@
 @REM cl as cgo Not work ^-^p
 
+go env -w CC=cl.exe
+
 cd c
 cl /nologo /c say.c >> ..\msvc.out
 cl /nologo /c sum.c >> ..\msvc.out
-lib /nologo say.obj sum.obj /OUT:mylib.lib
+cd ..
+
+lib /nologo c/say.obj c/sum.obj /OUT:lib/mylib.lib
+@REM move mylib.lib lib/mylib.lib
+
+go build ./go/hello-again.go
