@@ -20,6 +20,6 @@ mingw32-make.exe
     * MSVC - See `build.cmd`
 ```dos
 msvc_env.cmd
-cd hello-again
+cd calc
 build.cmd
 ```
