@@ -2,12 +2,12 @@
 @REM go env -w CC=cl.exe
 
 cd add
-cl /nologo /c add.cpp >> ..\c.out
+cl /nologo /c add.cpp
 cd ..
 
-link /nologo /DLL /OUT:mylib.dll add\add.obj
+link /nologo /DLL /OUT:adder.dll add\add.obj
 
-gendef mylib.dll
-dlltool -d mylib.def -l libmylib.a mylib.dll
+gendef adder.dll
+dlltool -dllname adder.dll --def adder.def --output-lib libadder.a
 
 go build
