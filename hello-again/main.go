@@ -1,8 +1,8 @@
 package main // import "hello-again"
 
+// #cgo CFLAGS: -I./include
+// #cgo LDFLAGS: -L./lib -lmylib
 // #include <say.h>
-// #cgo CFLAGS: -I../include
-// #cgo LDFLAGS: -L../lib -lmylib
 import "C"
 import (
 	"log"

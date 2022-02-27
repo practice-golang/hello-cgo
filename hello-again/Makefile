@@ -5,7 +5,7 @@ cgo:
 	ar rcs lib/libmylib.a c/say.o
 
 golang:
-	go build ./go/hello-again.go
+	go build
 
 build: cgo golang
 
