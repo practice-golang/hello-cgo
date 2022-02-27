@@ -8,6 +8,7 @@
 ## Folders
 * `hello` - C codes are embeded
 * `hello-again` - C codes are separated
+* `calc` - Use MSVC
 
 ## Build
 * hello - Just run `go build` or `go install`
