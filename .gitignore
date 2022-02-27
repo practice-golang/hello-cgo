@@ -2,10 +2,16 @@
 bin
 *.a
 *.o
+
 # linux bin
 hello-again/hello-again
 # windows bin
 hello-again.exe
+
 *.obj
 *.out
 *.lib
+*.dll
+*.def
+*.exp
+

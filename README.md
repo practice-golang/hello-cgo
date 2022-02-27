@@ -1,9 +1,9 @@
 # Cgo practice
 
 ## Used tool
-* Go 1.15
-* GCC 8.1.0 / MinGW-W64, Unbuntu 18.04
-* MSVC - No. https://github.com/golang/go/issues/20982
+* Go 1.17
+* GCC / MinGW-W64 (10.3.0 posix-seh), Unbuntu 18.04 (8.1.0)
+* MSVC 2017 Express - Not work
 
 ## Folders
 * `hello` - C codes are embeded
@@ -11,5 +11,15 @@
 
 ## Build
 * hello - Just run `go build` or `go install`
-* hello-again - Use make. See `Makefile`
-    * On MinGW on Windows, use `mingw32-make.exe`
+* hello-again
+    * MinGW - Use make. See `Makefile`
+```powershell
+cd hello-again
+mingw32-make.exe
+```
+    * MSVC - See `build.cmd`
+```dos
+msvc_env.cmd
+cd hello-again
+build.cmd
+```
