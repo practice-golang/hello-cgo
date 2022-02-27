@@ -2,8 +2,7 @@ all: build
 
 cgo:
 	gcc -o c/say.o -c c/say.c
-	gcc -o c/sum.o -c c/sum.c
-	ar rcs lib/libmylib.a c/say.o c/sum.o
+	ar rcs lib/libmylib.a c/say.o
 
 golang:
 	go build ./go/hello-again.go
@@ -11,4 +10,7 @@ golang:
 build: cgo golang
 
 clean:
-	rm -f c/*.o lib/*.a hello-again*
+	rm -f *.out \
+		c/*.o c/*.obj \
+		lib/*.a lib/*.dll lib/*.lib lib/*.def lib/*.exp \
+		hello-again*
