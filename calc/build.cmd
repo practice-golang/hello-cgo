@@ -4,10 +4,13 @@
 cd add
 cl /nologo /c add.cpp
 cd ..
+cd random_float
+cl /nologo /c random_float.cpp
+cd ..
 
-link /nologo /DLL /OUT:adder.dll add\add.obj
+link /nologo /DLL /OUT:calc.dll add\add.obj random_float\random_float.obj
 
-gendef adder.dll
-dlltool -dllname adder.dll --def adder.def --output-lib libadder.a
+gendef calc.dll
+dlltool -dllname calc.dll --def calc.def --output-lib libcalc.a
 
 go build
