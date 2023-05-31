@@ -1,9 +1,9 @@
 # Cgo practice
 
 ## Used tool
-* Go 1.17
-* GCC / MinGW-W64 (10.3.0 posix-seh), Unbuntu 18.04 (8.1.0)
-* MSVC 2017 Express
+* Go 1.20
+* GCC / MinGW-W64 (12.2.0 posix-seh), Unbuntu 18.04 (8.1.0)
+* ~~MSVC 2017 Express~~ MSVC 2022 Community
 
 ## Folders
 * `hello` - C codes are embeded
@@ -19,9 +19,17 @@ cd hello-again
 mingw32-make.exe
 ```
 * calc
-    * MSVC - See `calc/build.cmd`
+    * MSVC - See [calc/build.cmd](calc/build.cmd)
 ```dos
-msvc_env.cmd
+./msvc_env_2022.ps1
 cd calc
-build.cmd
+./build.cmd
+```
+* structs
+    * MSVC - See [structs/build.cmd](structs/build.cmd)
+    * Go is weak very much for c++ struct/class/type
+```powershell
+./msvc_env_2022.ps1
+cd structs
+./build.cmd
 ```

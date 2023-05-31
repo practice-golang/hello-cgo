@@ -6,6 +6,7 @@ bin
 hello-again/hello-again
 hello-again.exe
 calc.exe
+structs.exe
 
 *.obj
 *.out
@@ -13,4 +14,3 @@ calc.exe
 *.dll
 *.def
 *.exp
-
