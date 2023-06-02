@@ -17,7 +17,7 @@ mingw32-make.exe
 ```
 
 ## C++ Vector
-* Not working, why???
+* Not working msvc sometimes even mingw, why???
 ```powershell
 0: hqghum, $9358.00
 1: ylnlfdx, $7995.00
