@@ -14,7 +14,7 @@ void* init_company() {
 void generate_employee_list_vector(void* cmp, int count) {
     company* c = (company*)cmp;
 
-    std::vector<employee_data> employees = std::vector<employee_data>();
+    std::vector<employee_data> employees;
     employees.reserve(count);
 
     for (int i = 0; i < count; i++) {
