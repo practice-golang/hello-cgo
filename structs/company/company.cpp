@@ -14,8 +14,8 @@ void* init_company() {
 void generate_employee_list_vector(void* cmp, int count) {
     company* c = (company*)cmp;
 
-    std::vector<employee_data> employees;
-    employees.reserve(count);
+    std::vector<employee_data> emp_list;
+    emp_list.reserve(count);
 
     for (int i = 0; i < count; i++) {
         employee_data emp;
@@ -29,12 +29,12 @@ void generate_employee_list_vector(void* cmp, int count) {
         }
 
         emp.salary = 5000.0f + (rand() % 5000);
-        employees.emplace_back(emp);
+        emp_list.emplace_back(emp);
 
         printf("  %d: %s, $%.2f\n", emp.id, emp.name, emp.salary);
     }
 
-    c->emp_list = new employee_list{employees.data(), employees.size(), false};
+    c->emp_list = new employee_list{emp_list.data(), emp_list.size(), false};
 }
 
 void free_company_vector(void* cmp) {
