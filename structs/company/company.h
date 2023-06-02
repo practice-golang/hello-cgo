@@ -4,7 +4,7 @@ extern "C" {
 
 #include <stdbool.h>
 
-#ifdef _WIN32
+#if defined(_WIN32) && !defined(__MINGW32__)
 #define COMPANY_API __declspec(dllexport)
 #else
 #define COMPANY_API

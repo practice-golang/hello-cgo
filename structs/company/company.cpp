@@ -6,8 +6,7 @@
 
 void* init_company() {
     company* c = new company();
-    // c->emp_list = nullptr;
-    c->emp_list = NULL;
+    c->emp_list = nullptr;
 
     return c;
 }

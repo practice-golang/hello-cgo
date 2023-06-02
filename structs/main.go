@@ -1,7 +1,7 @@
 package main // import "structs"
 
 // #cgo CFLAGS: -I./company
-// #cgo LDFLAGS: -static -L. -lstructs -lstdc++
+// #cgo LDFLAGS: -L. -lstructs -lstdc++
 // #include "company.h"
 import "C"
 import (
