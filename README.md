@@ -11,6 +11,7 @@
 ```powershell
 build.cmd
 ```
+* MinGW
 ```powershell
 mingw32-make.exe
 ```
