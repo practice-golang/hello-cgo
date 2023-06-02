@@ -1,39 +1,23 @@
 package main // import "structs"
 
-// #cgo CFLAGS: -I./employee
-// #cgo LDFLAGS: -L. -lstructs
-// #include "employee.h"
+// #cgo CFLAGS: -I./company
+// #cgo LDFLAGS: -static -L. -lstructs -lstdc++
+// #include "company.h"
 import "C"
 import (
-	"fmt"
+	"unsafe"
 )
 
-type Employee struct {
-	ID     int
-	Name   string
-	Salary float32
+type StructContainer struct {
+	Company unsafe.Pointer
 }
 
 func main() {
-	cEmp := C.Employee{}
+	s := StructContainer{}
+	s.Company = C.init_company()
 
-	C.get_employee(&cEmp)
+	C.generate_employee_list(s.Company, C.int(5))
+	C.print_employee_list(s.Company)
 
-	goEmp := Employee{
-		ID:     int(cEmp.id),
-		Name:   C.GoString(cEmp.name),
-		Salary: float32(cEmp.salary),
-	}
-
-	fmt.Println(goEmp)
-
-	C.set_employee(&cEmp, 2, C.CString("Jane Smith"), 6000.0)
-
-	goEmp.ID = int(cEmp.id)
-	goEmp.Name = C.GoString(cEmp.name)
-	goEmp.Salary = float32(cEmp.salary)
-
-	fmt.Println(goEmp)
-
-	C.free_employee(&cEmp)
+	C.free_company(s.Company)
 }
