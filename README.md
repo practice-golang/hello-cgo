@@ -3,7 +3,7 @@
 ## Folders
 * `hello` - C codes are embeded
 * `hello-again` - C codes are separated
-* `calc` - MSVC usage
+* `calc` - unsafe.Pointer
 * `structs` - C++ vector
 
 ## Build
