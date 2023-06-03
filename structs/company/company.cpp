@@ -34,7 +34,18 @@ void generate_employee_list_vector(void* cmp, int count) {
         printf("  %d: %s, $%.2f\n", emp.id, emp.name, emp.salary);
     }
 
-    c->emp_list = new employee_list{emp_list.data(), emp_list.size(), false};
+    // c->emp_list = new employee_list{emp_list.data(), emp_list.size(), false};
+
+    employee_list* emp_list_p = (employee_list*)malloc(sizeof(employee_list));
+    emp_list_p->data = (employee_data*)malloc(count * sizeof(employee_data));
+    emp_list_p->size = count;
+    emp_list_p->sorted = false;
+
+    for (size_t i = 0; i < emp_list.size(); i++) {
+        emp_list_p->data[i] = emp_list[i];
+    }
+
+    c->emp_list = emp_list_p;
 }
 
 void free_company_vector(void* cmp) {
