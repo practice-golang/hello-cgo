@@ -17,17 +17,4 @@ mingw32-make.exe
 ```
 
 ## C++ Vector
-* Not working msvc sometimes even mingw, why???
-```powershell
-0: hqghum, $9358.00
-1: ylnlfdx, $7995.00
-2: rcvscxg, $7382.00
-3: wkfnqd, $6538.00
-4: wfnfozvsr, $7673.00
-#### Employee list:
--1840822832: ?G?, $9358.00
-1: ylnlfdx, $7995.00
-2: rcvscxg, $7382.00
-3: wkfnqd, $6538.00
-4: wfnfozvsr, $7673.00
-```
+* See https://forum.golangbridge.org/t/using-cgo-with-cpp-vector/31790/5
