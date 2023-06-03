@@ -6,16 +6,16 @@
 
 void* init_company() {
     company* c = new company();
-    c->emp_list = nullptr;
 
     return c;
 }
 
+#ifdef __cplusplus
+
 void generate_employee_list_vector(void* cmp, int count) {
     company* c = (company*)cmp;
 
-    std::vector<employee_data> emp_list;
-    emp_list.reserve(count);
+    c->emp_list.data.reserve(count);
 
     for (int i = 0; i < count; i++) {
         employee_data emp;
@@ -29,30 +29,19 @@ void generate_employee_list_vector(void* cmp, int count) {
         }
 
         emp.salary = 5000.0f + (rand() % 5000);
-        emp_list.emplace_back(emp);
+        c->emp_list.data.emplace_back(emp);
 
         printf("  %d: %s, $%.2f\n", emp.id, emp.name, emp.salary);
     }
 
-    // c->emp_list = new employee_list{emp_list.data(), emp_list.size(), false};
-
-    employee_list* emp_list_p = (employee_list*)malloc(sizeof(employee_list));
-    emp_list_p->data = (employee_data*)malloc(count * sizeof(employee_data));
-    emp_list_p->size = count;
-    emp_list_p->sorted = false;
-
-    for (size_t i = 0; i < emp_list.size(); i++) {
-        emp_list_p->data[i] = emp_list[i];
-    }
-
-    c->emp_list = emp_list_p;
 }
 
 void free_company_vector(void* cmp) {
     company* c = (company*)cmp;
-    delete (employee_list*)c->emp_list;
     delete c;
 }
+
+#else
 
 void generate_employee_list_cmalloc(void* cmp, int count) {
     company* c = (company*)cmp;
@@ -96,6 +85,8 @@ void free_company_cmalloc(void* cmp) {
     free(c);
 }
 
+#endif
+
 void generate_employee_list(void* cmp, int count) {
     // generate_employee_list_cmalloc(cmp, count);
     generate_employee_list_vector(cmp, count);
@@ -108,12 +99,18 @@ void free_company(void* cmp) {
 
 void print_employee_list(void* cmp) {
     company* c = (company*)cmp;
+#ifdef __cplusplus
+    for (auto const& emp : c->emp_list.data)
+    {
+        printf("  %d: %s, $%.2f\n", emp.id, emp.name, emp.salary);
+    }
+#else
     employee_list* emp = (employee_list*)c->emp_list;
-
     printf("#### Employee list:\n");
     for (size_t i = 0; i < emp->size; i++) {
         printf("  %d: %s, $%.2f\n", emp->data[i].id, emp->data[i].name, emp->data[i].salary);
     }
+#endif
 }
 
 #ifdef NOT_LIBRARY
