@@ -17,13 +17,21 @@ typedef struct {
 } employee_data;
 
 typedef struct {
+#ifdef __cplusplus
+    std::vector<employee_data> data;
+#else
     employee_data* data;
     size_t size;
+#endif
     bool sorted;
 } employee_list;
 
 struct company {
+#ifdef __cplusplus
+    employee_list emp_list;
+#else
     void* emp_list;
+#endif
 };
 
 COMPANY_API void* init_company();
