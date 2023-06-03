@@ -33,6 +33,7 @@ void generate_employee_list_vector(void* cmp, int count) {
 
         printf("  %d: %s, $%.2f\n", emp.id, emp.name, emp.salary);
     }
+
 }
 
 void free_company_vector(void* cmp) {
