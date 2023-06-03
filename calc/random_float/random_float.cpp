@@ -18,7 +18,7 @@ float* random_float_pointer_array(int length) {
 
 void random_float_by_pointer_set(float* result, int* length_p) {
     int* length = length_p;
-    *length = 15;
+    // *length = 10;
 
     std::vector<float> vec(*length);
 
